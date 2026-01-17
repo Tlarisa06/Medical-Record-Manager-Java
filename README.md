@@ -1,9 +1,5 @@
 # Medical-Record-Manager-Java
 Aplicație Java modulară (Layered Architecture) cu persistență polimorfică: SQL, Binary, Text &amp; RAM. Include interfață dublă (JavaFX &amp; CLI) configurabilă din settings.properties. Folosește Generic Repository, Java Streams pentru rapoarte, Unit Testing (JUnit >90% coverage) și Java Faker pentru populare baze de date. 
-# Medical Appointment Management System
-
-## Descriere Proiect
-O aplicație Java dezvoltată pe o arhitectură stratificată (Layered Architecture), concepută pentru a gestiona entități complexe și programări. Proiectul pune accent pe modularitate, utilizarea genericității și oferă multiple modalități de persistență a datelor, toate configurabile prin fișiere externe.
 
 ## Arhitectură și Module
 Proiectul este împărțit în patru straturi principale:
