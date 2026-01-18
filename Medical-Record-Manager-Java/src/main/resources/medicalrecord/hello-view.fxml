@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="medicalrecord.HelloController">
+    <!--    src/main/java/medicalrecord/HelloController.java-->
+    <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+
+        <Tab text="Pacienți">
+            <VBox spacing="10.0">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+
+                <GridPane hgap="10.0" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints  maxWidth="150.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints  minWidth="10.0" prefWidth="300.0" />
+                    </columnConstraints>
+
+                    <Label text="ID :" />
+                    <TextField fx:id="idPacientField" GridPane.columnIndex="1" />
+
+                    <Label text="Nume:" GridPane.rowIndex="1" />
+                    <TextField fx:id="numePacientField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Prenume:" GridPane.rowIndex="2" />
+                    <TextField fx:id="prenumePacientField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Vârstă:" GridPane.rowIndex="3" />
+                    <TextField fx:id="varstaPacientField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                </GridPane>
+
+                <HBox spacing="10.0">
+                    <Button onAction="#handleAdaugaPacient" text="Adaugă Pacient" />
+                    <Button onAction="#handleUpdatePacient" text="Update Pacient" />
+                    <Button onAction="#handleDeletePacient" text="Șterge Pacient" />
+                </HBox>
+
+                <TableView fx:id="pacientiTable" >
+                    <columns>
+                        <TableColumn fx:id="colIdPacient" prefWidth="50.0" text="ID" />
+                        <TableColumn fx:id="colNumePacient" prefWidth="150.0" text="Nume" />
+                        <TableColumn fx:id="colPrenumePacient" prefWidth="150.0" text="Prenume" />
+                        <TableColumn fx:id="colVarstaPacient" prefWidth="80.0" text="Vârstă" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <Tab text="Programări">
+            <VBox spacing="10.0">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+
+                <GridPane hgap="10.0" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints maxWidth="170.0" minWidth="10.0" prefWidth="160.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="300.0" />
+                    </columnConstraints>
+
+                    <Label text="ID Prog :" />
+                    <TextField fx:id="idProgramareField" GridPane.columnIndex="1" />
+
+                    <Label text="ID Pacient:" GridPane.rowIndex="1" />
+                    <TextField fx:id="idPacientProgramareField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Dată (dd.MM.yyyy HH:mm):" GridPane.rowIndex="2" />
+                    <TextField fx:id="dataProgramareField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Scop:" GridPane.rowIndex="3" />
+                    <TextField fx:id="scopProgramareField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                </GridPane>
+
+                <HBox spacing="10.0">
+                    <Button onAction="#handleAdaugaProgramare" text="Adaugă Programare" />
+                    <Button onAction="#handleUpdateProgramare" text="Update Programare" />
+                    <Button onAction="#handleDeletePorgramare" text="Șterge Programare" />
+                </HBox>
+
+                <TableView fx:id="programariTable" >
+                    <columns>
+                        <TableColumn fx:id="colIdProgramare" prefWidth="50.0" text="ID Prog." />
+                        <TableColumn fx:id="colIdPacientProgramare" prefWidth="80.0" text="ID Pacient" />
+                        <TableColumn fx:id="colNumePacientProgramare" prefWidth="180.0" text="Nume Pacient" />
+                        <TableColumn fx:id="colDataProgramare" prefWidth="150.0" text="Dată si Oră" />
+                        <TableColumn fx:id="colScopProgramare" prefWidth="350.0" text="Scop" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <Tab text="Rapoarte Statistice">
+            <VBox spacing="10.0">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+
+                <Label text="Selectează Raportul Dorit:">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+
+                <HBox spacing="10.0">
+                    <Button onAction="#handleRaport1" text="1. Programări/Pacient" />
+                    <Button onAction="#handleRaport2" text="2. Programări/Lună" />
+                    <Button onAction="#handleRaport3" text="3. Zile de la Ultima Prog." />
+                    <Button onAction="#handleRaport4" text="4. Luni Aglomerate" />
+                </HBox>
+
+                <Label text="Rezultatul Raportului:">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+
+                <ListView fx:id="rapoarteListView" VBox.vgrow="ALWAYS" />
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</VBox>
