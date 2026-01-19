@@ -1,36 +1,32 @@
 # Medical-Record-Manager-Java
-Aplicație Java modulară (Layered Architecture) cu persistență polimorfică: SQL, Binary, Text &amp; RAM. Include interfață dublă (JavaFX &amp; CLI) configurabilă din settings.properties. Folosește Generic Repository, Java Streams pentru rapoarte, Unit Testing (JUnit >90% coverage) și Java Faker pentru populare baze de date. 
+Modular Java application (Layered Architecture) featuring polymorphic persistence: SQL, Binary, Text, and RAM. Includes a dual interface (JavaFX & CLI) configurable via a settings.properties file. The project utilizes Generic Repositories, Java Streams for reporting, Unit Testing (JUnit 5 with >90% code coverage), and Java Faker for database population.
 
-## Arhitectură și Module
-Proiectul este împărțit în patru straturi principale:
-1. **Domain**: Conține entitățile și clasele abstracte. Toate obiectele sunt unic identificabile printr-un ID generat automat și persistent.
-2. **Repository**: Implementare generică pentru stocarea datelor. Suportă multiple mecanisme de persistență.
-3. **Service**: Conține logica de business și procesarea datelor folosind Java 8 Streams pentru generarea de rapoarte.
-4. **User Interface**: Interfață duală (Linie de comandă și Interfață Grafică JavaFX).
+## Architecture and Modules
+The project is organized into four main layers:
+1. **Domain**: Contains entities and abstract classes. All objects are uniquely identifiable through an automatically generated and persistent ID system.
+2. **Repository**: Generic implementation for data storage. Supports multiple persistence mechanisms through polymorphism.
+3. **Service**: Contains the business logic and data processing using Java 8 Streams for report generation.
+4. **User Interface**: Dual interface support (Command Line Interface and JavaFX Graphical User Interface).
 
-## Caracteristici Tehnice
-- **Persistență Multi-Sursă**: Sistemul permite stocarea datelor în format Text, Binar (Serializare Java), Memorie (RAM) sau bază de date SQL.
-- **Configurare Externă**: Tipul de repository (SQL, Binary, Text) și modul de afișare (CLI, JavaFX) se modifică prin fișierul settings.properties, fără modificarea codului sursă.
-- **Genericitate**: Utilizarea interfețelor și claselor generice pentru operațiile CRUD, permițând extinderea ușoară cu noi entități.
-- **Sistem de Identificare**: Generator de ID-uri care salvează ultima stare într-un fișier text pentru a asigura unicitatea la repornirea aplicației.
-- **Validare și Excepții**: Ierarhie proprie de excepții (RepositoryException, DuplicateIDException etc.) pentru gestionarea robustă a erorilor de input sau de sistem.
+## Technical Features
+- **Multi-Source Persistence**: The system allows data storage in Text, Binary (Java Serialization), Memory (RAM), or SQL database formats.
+- **External Configuration**: The repository type (SQL, Binary, Text) and the display mode (CLI, JavaFX) are managed through the `settings.properties` file, requiring no source code modifications.
+- **Generics**: Extensive use of generic interfaces and classes for CRUD operations, allowing easy extension with new entities.
+- **Identification System**: An ID generator that persists its state in a text file to ensure ID uniqueness across application restarts.
+- **Validation and Exceptions**: Custom exception hierarchy (RepositoryException, DuplicateIDException, etc.) for robust handling of input or system errors.
 
-## Tehnologii Utilizate
+## Technologies Used
 - Java 17+
-- JavaFX pentru interfața grafică
-- JDBC pentru integrarea cu baza de date SQL
-- JUnit 5 pentru testare unitară (Code coverage > 90%)
-- Java Faker pentru generarea de date pseudo-aleatoare
+- JavaFX for the Graphical User Interface (GUI)
+- JDBC for SQL database integration
+- JUnit 5 for Unit Testing (Code coverage > 90%)
+- Java Faker for generating pseudo-random test data
 
-## Instrucțiuni de Configurare
-Aplicația folosește un fișier de tip properties pentru controlul execuției. Exemplu de configurare în settings.properties:
+## Configuration Instructions
+The application uses a properties file to control execution. Example configuration in `settings.properties`:
 
+```properties
 Repository = database
 Patients = patients.bin
 Appointments = appointments.bin
 Display = javafx
-
-## Instalare și Rulare
-1. Clonează repository-ul local.
-2. Configurează parametrii doriți în src/main/resources/settings.properties.
-3. Rulează clasa Main pentru a porni aplicația în modul selectat.
